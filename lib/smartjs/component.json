@@ -1,0 +1,36 @@
+{
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "util",
+    "css",
+    "size",
+    "input",
+    "file",
+    "file-button",
+    "event-dispatcher",
+    "drag",
+    "sound",
+    "tween",
+    "ui-go-mark",
+    "tween",
+    "css-animations",
+    "pro-css-animate",
+    "toggle-button",
+    "ajax-file-upload",
+    "fast-click",
+    "random-color",
+    "easy-animation",
+    "easy-animation-manager",
+    "form",
+    "loader",
+    "movie-clip",
+    "dom",
+    "url",
+    "video",
+    "device",
+    "share"
+  ]
+}

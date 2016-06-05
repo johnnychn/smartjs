@@ -1,0 +1,9 @@
+{
+  "description": "S2 FileButton",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "event-dispatcher"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "S2 CSS",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "util"
+  ]
+}

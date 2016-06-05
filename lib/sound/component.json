@@ -1,0 +1,10 @@
+{
+  "description": "S2 Sound",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "event-dispatcher"
+  ]
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+
+        div {
+            height: 50px;
+            font-size: 50px;
+            padding: 40px;
+            text-align: center;
+            color: #ffffff;
+
+        }
+    </style>
+
+</head>
+<body>
+<div id="foo" class="shadow" style="margin-top: 100px;">hello</div>
+<div id="bar" style="margin-top: 50px">-webkit-</div>
+<script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+<script src="../build/smartjs.js"></script>
+<script>
+    // Creating anonymous with keyframes
+    var anim = SmartJS.CssAnimations.createSmartAnimation( {
+        x: 0,
+        y: 10,
+        rotate: 10,
+        'background-color': SmartJS.RandomColor({hue: 'blue', count: 18})[0],
+        'transform-origin': "0% 50%",
+        opacity:0
+    },  {
+        'background-color':SmartJS.RandomColor({hue: 'blue', count: 18})[0]
+    },{
+        x: 0,
+        y: 10,
+        rotate: -10,
+        'background-color': SmartJS.RandomColor({hue: 'blue', count: 18})[0],
+        'transform-origin': "100% 50%",
+        opacity:1
+    }, 'px');
+
+
+    var color= SmartJS.RandomColor();
+
+    // Creating by name
+    var anim2 = SmartJS.CssAnimations.create('anim2', {
+        '0%': {
+            'background-color':color,
+            transform: "rotate(0deg)",
+            //'transform-origin':"0% 50%"
+
+        },
+        '50%': {
+            'background-color': SmartJS.RandomColor(),
+            transform: "rotate(180deg)"
+        },
+        '100%': {
+            'background-color':color,
+            transform: "rotate(360deg)"
+            // 'transform-origin':"100% 50%"
+        }
+    });
+
+
+
+    var smartDom= new SmartJS.Dom('.shadow');
+    smartDom.dom.css('text-shadow','2px 2px 2px #000000');
+    smartDom.dom.css({'border-radius':10,'border':'10px solid #000'})
+
+
+
+
+
+    SmartJS.CssAnimations.addAnimationToID("foo", {
+        name: anim.name,
+        duration: "2s",
+        count: 'infinite', func: "linear",
+        direction: 'alternate'
+    });
+    SmartJS.CssAnimations.addAnimationToID('bar', {
+        name: anim2.name,
+        duration: "0.8s",
+        func: "linear",
+        count: 'infinite',
+        'transform-origin': "50% 50%"
+    });
+
+    //      foo.style.animationName = anim.name;
+    //      foo.style.animationDuration = '5s';
+    //      bar.style.animationName = anim2.name;
+    //      bar.style.animationDuration = '5s';
+    //
+    //      // webkit (all other browsers are unprefixed, I think)
+    //      foo.style.webkitAnimationName = anim.name;
+    //      foo.style.webkitAnimationDuration = '5s';
+    //      bar.style.webkitAnimationName = anim2.name;
+    //      bar.style.webkitAnimationDuration = '5s';
+</script>
+</body>
+</html>

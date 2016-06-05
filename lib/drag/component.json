@@ -1,0 +1,11 @@
+{
+  "description": "S2 Drag",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "event-dispatcher",
+    "tween"
+  ]
+}

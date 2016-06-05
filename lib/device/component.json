@@ -1,0 +1,9 @@
+{
+  "description": "SmartJS Device",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+  ]
+}

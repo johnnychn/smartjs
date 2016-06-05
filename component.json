@@ -1,0 +1,5 @@
+{
+  "name": "smartjs",
+  "locals": ["smartjs"],
+  "paths": ["lib"]
+}

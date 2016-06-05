@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>声音播放</title>
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+</head>
+<body>
+<script>
+    $(document).ready(function () {
+
+//        if (SmartJS.Device.weixin) {
+//            //微信内
+//
+//        } else {
+//            //微信外
+//        }
+//
+//
+//        if (SmartJS.Device.android) {
+//            //android
+//
+//        } else if (SmartJS.Device.iphone) {
+//            //iphone
+//
+//        } else if (SmartJS.Device.isPC()) {
+//
+//            //PC
+//        }
+
+
+        var music = new SmartJS.Sound({path: 'sound/bg.mp3',loop:false});
+        music.seek(20);
+        music.play();
+
+
+        music.addEventListener('stop', function (e) {
+            SmartJS._.delay(function(){
+                music.destory()
+            },1000)
+            console.log('ended');
+        })
+        music.addEventListener('oncanplay', function (e) {
+
+            console.log('oncanplay');
+        })
+
+
+
+        music.seek(75);
+
+
+        music.play();
+        //video.pause();
+        // video.stop();
+
+        // video.destory();
+        // video.toggle();
+
+        music.percent();
+
+        setTimeout(function () {
+            console.log(music.audio.duration);
+            // video.stop();
+
+
+        }, 1000);
+
+
+    })
+</script>
+
+</body>
+</html>
+

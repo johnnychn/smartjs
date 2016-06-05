@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画管理</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        .floater {
+            padding: 18px 32px;
+            background: #111C2C;
+            color: white;
+            border-radius: 64px;
+            -webkit-border-radius: 64px;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        * {
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        h1, .h1 {
+            font-family: "proxima-nova", sans-serif;
+            font-weight: 100;
+        }
+
+        h1 small {
+
+            font-size: 50%;
+            letter-spacing: 3px;
+        }
+
+        html, body {
+            font-family: "proxima-nova", sans-serif;
+            font-weight: 300;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: " ";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        html, body {
+            height: 100%;
+            background: #1A2434;
+            color: white;
+            text-align: center;
+
+        }
+
+        p {
+            line-height: 40px;
+        }
+
+        .box {
+            margin: 10px;
+            width: 40px;
+            height: 40px;
+            float: left;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        var am = new SmartJS.EasyAnimationManager({single: false});
+
+        var total = 8;
+        var current = 0;
+
+
+        for (var i = 1; i <= total; i++) {
+
+            var dom = $('<div id="box' + i + '" data-sr=" hustle 0px over 0.5s scale up 50% "   class="box"></div>');
+            dom.css('background', SmartJS.RandomColor());
+            $('body').append(dom);
+
+            am.addAnimation(i, new SmartJS.EasyAnimation('#box' + i, {
+                reset: true,
+                move: '100px',
+                delay: 'always',
+                mobile: true,
+                visible: false
+            }));
+
+        }
+
+
+        am.showAll();
+
+
+        setInterval(function () {
+            current++;
+
+
+            if (current > total) {
+                current = 1;
+            }
+
+
+            am.toggleByID(current);
+        }, 500);
+
+        //
+
+    });
+</script>
+
+</body>

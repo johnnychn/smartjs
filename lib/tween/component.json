@@ -1,0 +1,9 @@
+{
+  "description": "S2 Device",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+  ]
+}

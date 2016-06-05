@@ -1,0 +1,9 @@
+{
+  "description": "S2 RandomColor",
+  "scripts": [
+    "randomcolor.js"
+  ],
+  "locals": [
+    "underscore"
+  ]
+}

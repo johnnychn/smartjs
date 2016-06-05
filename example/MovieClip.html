@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>影片剪辑</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+</head>
+<body>
+<div id="movieclip">
+
+
+
+</div>
+<script>
+    $(document).ready(function () {
+
+
+        var mc = new SmartJS.MovieClip('#movieclip',{loop:false,frameTime:1000/10});
+        mc.buildHtml(mc.dom,'<img class="movieclip_frame" src="img/sound_{ID}.png"/>',1,5);
+        mc.buildHtml(mc.dom,'<img class="movieclip_frame" src="img/sound_{ID}.png"/>',4,2);
+        mc.init();
+
+        function enterFrame(e) {
+            console.log(e);
+            if (e.frame > 4) {
+                mc.removeEventListener("frame", enterFrame)
+               // mc.pause();
+            }
+        };
+
+        function stop(e){
+            console.log(e);
+        }
+        function pause(e){
+            console.log(e);
+        }
+        function play(e){
+            console.log(e);
+        }
+
+
+
+        mc.addEventListener('frame', enterFrame);
+        mc.addEventListener('stop', stop);
+        mc.addEventListener('pause', pause);
+        mc.addEventListener('play', play);
+        mc.play();
+
+
+    })
+</script>
+
+</body>
+</html>

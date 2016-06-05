@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>腾讯视频</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+
+</head>
+<body>
+<div id="log">
+
+    <input name="username" value="111">
+    <input name="email" value="1@1.com">
+    <input name="tel" value="130000000">
+
+
+
+    <select name="role" id="combobox">
+    </select>
+
+    <select name="city" id="combobox2">
+    </select>
+
+    <div id="radio">
+    </div>
+
+    <div id="checkbox">
+    </div>
+
+
+
+    <div class="checkbox-inline" style="margin-left: 10px">
+        <label>
+            <input type="checkbox" name="focus_1" id="optionsRadios1" value="1">
+            人像
+        </label>
+    </div>
+    <div class="checkbox-inline">
+        <label>
+            <input type="checkbox" name="focus_2" id="optionsRadios2" value="2">
+            风光
+        </label>
+    </div>
+
+    <div>
+        <button id="dd">showFormData</button>
+    </div>
+
+    <div>
+        <button id="init">init</button>
+        <button id="init2">init</button>
+        <button id="clear">clear</button>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    var roleObj = {1: "管理员", 2: "经理", 3: "编辑", 4: "审核专员", 5: "操作员"};
+
+
+    var form = new SmartJS.Form('#combobox');
+    form.dom.append(form.comboboxHtmlByObj(roleObj, 2));
+
+
+
+    var form = new SmartJS.Form('#combobox2');
+    form.dom.append(form.comboboxHtmlByArray([{id:1,name:'北京'},{id:2,name:'南京'}],'name','id','2'));
+
+    radioObj=[{name:"gender",value:1,label:"男"},{name:"gender",value:2,label:"女"},{name:"gender",value:3,label:"保密"}];
+
+    var form = new SmartJS.Form('#radio');
+    form.dom.append(form.radioHtml(roleObj, 2,'{label} <input type="radio" name="{name}" value="{value}" {checked}/>','gender'));
+
+    checkboxObj=[{name:"game",value:1,label:"游戏",checked:true},{name:"swim",value:2,label:"游泳",checked:true},{name:"run",value:3,label:"跑步"}];
+
+    var form = new SmartJS.Form('#checkbox');
+    form.dom.append(form.checkboxHtml(checkboxObj, '<input type="checkbox" name="{name}" value="{value}" {checked}/>{label}'));
+
+
+
+    $.post('http://heyi.com/ReservationAPI/add/', {visit_time: '2015-11-19'}, function (d) {
+        console.log(d);
+    }, 'jsonp');
+
+
+    $('#dd').click(function () {
+        var form = new SmartJS.Form(this);
+        console.log(form.getInputs(['username', 'email', 'tel', 'gender', 'focus_1', 'focus_2','role']));
+
+    })
+    $('#init').click(function () {
+        var form = new SmartJS.Form(this);
+        form.initInputs(['username', 'email', 'tel', 'gender', 'focus_1', 'focus_2','city','role'], ['', '', '69', 1, false, true,2,2])
+
+    })
+    $('#init2').click(function () {
+        var form = new SmartJS.Form(this);
+        form.initInputs({
+            'username': 'initname',
+            'email': '1111@cc.com',
+            'tel': '1222',
+            'gender': '2',
+            'focus_1': true,
+            'focus_2': false,
+            city:1,role:3
+        })
+
+    })
+    $('#clear').click(function () {
+        var form = new SmartJS.Form('#log');
+        form.clearInputs()
+
+    })
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/*CSS reset*/
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin: 0; padding: 0;}
+table{ border-collapse:collapse;border-spacing:0;}
+img{ border:0;}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal;}
+ol,ul{ list-style:none;}
+caption,th{ text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:"";}
+abbr,acronym{ border:0;}
+input{ outline:none;}
+/*文字排版*/
+.f12{ font-size:12px;}
+.f13{ font-size:13px;}
+.f14{ font-size:14px;}
+.f16{ font-size:16px;}
+.f20{ font-size:20px;}
+.fb{ font-weight:bold;}
+.fn{ font-weight:normal;}
+.t2{ text-indent:2em;}
+.unl{ text-decoration:underline;}
+.no-unl{ text-decoration:none;}
+
+/*定位*/
+.tl{ text-align:left;}
+.tc{ text-align:center;}
+.tr{ text-align:right;}
+.bc{ margin-left:auto; margin-right:auto;}
+.fl{ float:left; display:inline;}
+.fr{ float:right; display:inline;}
+.cl{ clear:left;}
+.cr{ clear:right;}
+.cb{ clear:both;}
+.clearfix:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.clearfix{*zoom:1;}
+.vm{ vertical-align:middle;}
+.vtop{ vertical-align: top;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.abs-right{ position:absolute; right:0;}
+.zoom{ zoom:1;}
+.hidden{ visibility:hidden;}
+.none{ display:none;}
+.ovh{overflow: hidden;}
+.indent{ text-indent: 2em;}
+.indent2{ text-indent: 3em;}
+/*通用类*/
+.f16{ font-size:16px;}
+.mt5{ margin-top:5px;}
+.mt10{ margin-top:10px;}
+.mt20{ margin-top:20px;}
+.mt25{ margin-top:25px;}
+.mt30{ margin-top:30px;}
+.mt40{ margin-top:40px;}
+.mt50{ margin-top:50px;}
+.ml30{ margin-left: 30px;}
+.ml10{ margin-left:10px;}
+.ml15{ margin-left:15px;}
+/*去掉安卓按钮的蓝框*/
+* { -webkit-tap-highlight-color: rgba(0, 0, 0, 0);   }
+.width-100{  width: 100%;  }
+.height-100{  height:100%  }
+.left-0{
+    left: 0px;
+}
+.top-0{
+    top: 0px;
+}
+
+

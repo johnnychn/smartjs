@@ -1,0 +1,14 @@
+{
+  "description": "S2 Size",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "util",
+    "size",
+    "css",
+    "input",
+    "loader"
+  ]
+}

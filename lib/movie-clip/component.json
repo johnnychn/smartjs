@@ -1,0 +1,13 @@
+{
+  "description": "VA MovieClips",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+
+    "event-dispatcher",
+    "util"
+
+  ]
+}

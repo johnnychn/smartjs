@@ -1,0 +1,10 @@
+{
+  "description": "VA AnimationManager",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "easy-animation"
+  ]
+}

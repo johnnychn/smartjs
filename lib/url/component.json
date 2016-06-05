@@ -1,0 +1,10 @@
+{
+  "description": "SmartJS Url",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "util"
+  ]
+}

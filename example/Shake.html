@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>摇一摇</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+</head>
+<body>
+<div id="log"></div>
+<script>
+    $(document).ready(function () {
+
+        var myShakeEvent = new SmartJS.Device.Shake({
+            threshold: 10, // optional shake strength threshold
+            timeout: 1000 // optional, determines the frequency of event generation
+        });
+        myShakeEvent.start();
+
+        window.addEventListener('shake', shakeEventDidOccur, false);
+
+//function to call when shake occurs
+
+        var count=0;
+        function shakeEventDidOccur() {
+
+            //put your own code here etc.
+            // alert('shake!');
+            count++
+            $('#log').append(count+'shake</br>')
+        }
+
+//        window.removeEventListener('shake', shakeEventDidOccur, false);
+//        myShakeEvent.stop();
+
+
+    })
+
+
+
+
+
+</script>
+
+</body>
+</html>

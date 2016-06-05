@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script type="text/javascript" src="../build/hammer.min.js"></script>
+    <script type="text/javascript"
+            src="../build/jquery.mousewheel.min.js"></script>
+    <script src="../build/jquery.cropbox.js"></script>
+    <link type="text/css" media="screen" rel="stylesheet" href="../build/jquery.cropbox.css">
+
+</head>
+
+<body>
+
+<img id="avatar" cropwidth="100" alt="" cropheight="100" src="img/bg.jpg"/>
+<input type="file" hidden="hidden" id="localimage" onchange="preImg(this.id,'imgPre');"/>
+
+<div id="_box">选择图片</div>
+
+<a href="#" download="crop.png">下载</a>
+<script type="text/javascript">
+    var img = $('#avatar');
+    function preImg(sourceId) {
+        if (typeof FileReader === 'undefined') {
+            alert('Your browser does not support FileReader...');
+            return;
+        }
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+
+            img.attr('src', this.result);
+            //img.src='img/bg.jpg';
+            //img.attr('src','img/bg.jpg');
+
+
+            init();
+        };
+        reader.readAsDataURL(document.getElementById(sourceId).files[0]);
+    }
+
+$('#_box').click(function(){
+    $('#localimage').click();
+
+});
+
+
+    function init() {
+
+
+        var download = $('a');
+
+
+        img.cropbox({
+            width: 100,
+            height: 100, showControls: 'auto'
+        }, function () {
+            //on load
+            console.log('Url: ' + this.getDataURL());
+        }).on('cropbox', function (event, results, img) {
+            console.log('crop window: ' + results);
+            download.attr('href', img.getDataURL());
+        });
+    }
+
+</script>
+
+</body>

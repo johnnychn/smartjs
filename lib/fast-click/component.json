@@ -1,0 +1,12 @@
+{
+  "description": "S2 FastClick",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+
+
+
+  ]
+}

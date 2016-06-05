@@ -1,0 +1,9 @@
+{
+  "description": "S2 UIGoMark",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+  ]
+}

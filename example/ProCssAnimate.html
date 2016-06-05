@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画专业版</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+    <style>
+        #drag {
+            width: 200px;
+            height: 200px;
+            background: #2b81af;
+        }
+        .box{
+            line-height: 100px;
+            text-align: center;font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box" id="animate" style="width: 100px;height:100px;background: #ff0000">A1</div>
+<div class="box" id="animate2" style="width: 100px;height:100px;background: #0040D0">A2</div>
+<div class="box" id="animate3" style="width: 100px;height:100px;background: #ffc520">A3</div>
+<div class="box" id="drag"></div>
+<script type="text/javascript">
+
+    var scale = 0.5;
+    $('body').css(SmartJS.Css.transformObject({scale:scale}));
+
+
+
+    var manager = new SmartJS.ProCssAnimate();
+    var animate = manager.createAnimate('#animate', {
+        opacity: 0,
+        width: 50
+    }, {
+        opacity: 1,
+        width: 300,
+        y:100,scale:2,rotateY:180
+    }, {min: 2.5, max: 3,outRangeUpdate:true});
+   // animate.dom.css(VA.Transform.fixCss('backface-visibility','hidden'))
+    manager.add(animate);
+
+     animate = manager.createAnimate('#animate2', {
+        opacity: 1,
+       x:0,y:0,rotate:0,padding:10
+    }, {
+        opacity: 1,
+       // width: 200,
+         x: 100, y: 100, scaleX: 1.5,
+         rotate:90,padding:100
+    }, {min: 1.5, max: 3});
+
+    manager.add(animate);
+
+
+    animate = manager.createAnimate('#animate3', {
+        opacity: 1,
+        width: 50,x: -200, y: 0, scaleX: 4
+    }, {
+        opacity: 1,
+        width: 50,
+        x: 100, y: 100, scaleX: .5
+    }, {min: 0, max:2,outRangeUpdate:false,limitToRange:false});
+    manager.add(animate);
+    animate = manager.createAnimate('#animate3', {
+        opacity: 1,
+        width: 50,
+       x: 100, y: 100, scaleX: .5,scaleY:1
+    }, {
+        opacity: 1,
+        width: 50,
+       x: -100, y: -100, scaleX: .5,scaleY:1
+    }, {min: 2, max:3,outRangeUpdate:false,ext:'%',limitToRange:false});
+
+    manager.add(animate);
+
+
+    var drag = new SmartJS.Drag('#drag', {minX: 100, maxX: 400, minY: 0, maxY: 0, scaleX: scale, scaleY: scale,startDom:$(window)});
+    drag.addEventListener('update', function (d) {
+      //  console.log(d.target.valueX)
+        manager.updateValue(d.target.valueX * 3);
+    })
+    drag.addEventListener('end', function (d) {
+        // console.log(d)
+        drag.tweenTo(0.8,0,.5,SmartJS.Tween.Sine.inOut);
+        // animate.tweenTo(1);
+    })
+
+
+    drag.setValue(0.6, 1);
+
+</script>
+
+</body>
+

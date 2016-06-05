@@ -1,0 +1,9 @@
+{
+  "description": "S2 ToggleButton",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+  ]
+}

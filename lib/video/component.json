@@ -1,0 +1,10 @@
+{
+  "description": "SmartJS Video",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "event-dispatcher"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "description": "S2 ProCSSAnimate",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "css",
+    "underscore",
+    "tween","dom"
+  ]
+}

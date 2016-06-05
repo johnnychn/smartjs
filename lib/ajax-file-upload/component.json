@@ -1,0 +1,9 @@
+{
+  "description": "Ajax File Upload Plugin;https://github.com/jchild3rs/AjaxFileUpload",
+  "author": "Copyright (c) 2013 James Childers;",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

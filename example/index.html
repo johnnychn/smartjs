@@ -1,0 +1,88 @@
+<html>
+<head>
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+</head>
+<body>
+<div id="log" style="background: #ffc520;text-align: center">aaa</div>
+<canvas id="canvas" style="width: 500px;height: 400px"></canvas>
+</body>
+<script>
+//    console.log(Date.now());
+//    console.log(new Date().format('yyyy-MM-dd hh:mm:ss.S'));
+//    console.log(SmartJS.Util.isArray([]));
+//    console.log(SmartJS.Util.isString('1b'));
+//    console.log(SmartJS.Util.isObject({}));
+//    console.log(SmartJS.Util.isNumber(111));
+//    console.log(SmartJS.Util.replace('abc bc abcd', 'ab', '--'));
+//    console.log(SmartJS.Util.stringToVars('a=2&b=122&m=abc'));
+//    console.log(SmartJS.Util.varsToString({a: "2", b: "122", m: "abc"}));
+//    console.log(SmartJS.Util.intToString(1, 4, '0'));
+//    console.log(SmartJS.Util.eval('{abc:12}'));
+//
+//    SmartJS.Util.getScript('//cdn.bootcss.com/jquery/2.2.1/jquery.min.js', function () {
+//        console.log($);
+//    })
+//    SmartJS.Util.getCss('./base.css', function () {
+//        console.log('css');
+//    });
+//    console.log(SmartJS._);//underscore
+//    console.log(SmartJS.Input.isEmail('111@fd.com'));
+//    console.log(SmartJS.Input.isHttp('Http://www.baidu.com'));
+//    console.log(SmartJS.Input.isHttps('httPs://www.baidu.com'));
+//    console.log(SmartJS.Input.isLink('https://www.baidu.com'));
+//    console.log(SmartJS.Input.isFlexUrl('//www.baidu.com'));
+//    console.log(SmartJS.File.isJpg('asfd.jpg'));
+//    console.log(SmartJS.File.isGif('asfd.gif'));
+//    console.log(SmartJS.File.isPng('asfd.png'));
+//    console.log(SmartJS.File.isImage('asfd.jpeg'));
+//    console.log(SmartJS.File.isSql('asfd.Sql'));
+//    console.log(SmartJS.Css.fixValue('100%', '%'))
+//    console.log(SmartJS.Css.transformString({x: 10, y: 10, scale: 10, rotate: 90}, '%'))
+//    console.log(SmartJS.Css.transformObject({x: 10, y: 10, scale: 10, rotate: 90}, '%'))
+//    console.log(SmartJS.Css.transitionObject({property: "x", duration: "1s", delay: '0'}))
+//
+//    console.log(SmartJS.Css.transitionObject({property: "x", duration: "1s", delay: '0'}));
+//
+//    $('#log').css(SmartJS.Css.transformOriginObject(0, 50));
+//    SmartJS.CssAnimations.addAnimation('#log', {
+//        name: SmartJS.CssAnimations.createAnimation({x: 0, rotate: 360}, {
+//            x: 0,
+//            rotate: 0
+//        }, 'px').name, func: "linear", duration: "1s", count: 'infinite'
+//    })
+//
+//    console.log(new SmartJS.Size(0, 0, 300, 500).fillInRec(new SmartJS.Size(0, 0, 300, 600)));
+//    console.log(new SmartJS.Size(0, 0, 300, 500).fixInRec(new SmartJS.Size(0, 0, 300, 600)));
+
+
+function log(str){
+    $('#log').text(str)
+}
+// 设置事件监听器
+window.addEventListener("DOMContentLoaded", function() {
+    // 获取元素
+    var canvas = document.getElementById("canvas"),
+            context = canvas.getContext("2d"),
+            video = document.getElementById("video"),
+            videoObj = { "video": true },
+            errBack = function(error) {
+                log("Video capture error: ", error.code);
+            };
+
+    // 设置video监听器
+    if(navigator.getUserMedia) { // Standard
+        navigator.getUserMedia(videoObj, function(stream) {
+            video.src = stream;
+            video.play();
+        }, errBack);
+    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+        navigator.webkitGetUserMedia(videoObj, function(stream){
+            video.src = window.webkitURL.createObjectURL(stream);
+            video.play();
+        }, errBack);
+    }
+}, false);
+</script>
+
+</html>

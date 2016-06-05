@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GoMark</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!--<script src="http://zeptojs.com/zepto.min.js"></script>-->
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script type="text/javascript" src="../build/smartjs.js"></script>
+
+
+
+</head>
+<style>
+    .box {
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        color: #fff;
+        width: 100px;
+        float: left;
+        margin: 2px;
+
+    }
+
+    body {
+        margin: 0px
+    }
+
+</style>
+
+<body>
+
+
+<div id="gotop" style="position: fixed;bottom: 10px;right:10px;background: #999;color: #fff;cursor:pointer;padding: 10px">top</div>
+
+
+<script type="text/javascript">
+    $('body').width(2000);
+
+    var map={}
+
+    for (var i = 0; i < 500; i++) {
+        var box = $('<div class="box"></div>');
+        var color = SmartJS.RandomColor();
+
+        box.css('background', color);
+        var id = 'mark_' + i;
+
+        box.text(id);
+        box.attr('id', id);
+        map[id]=new SmartJS.Dom(box);
+
+
+        $('body').append(box)
+
+
+    }
+$('#gotop').click(function(){
+    var go='mark_' + SmartJS._.random(0,500);
+    console.log(go);
+    map[go].scrollTo(500)
+})
+
+
+
+
+</script>
+
+</body>

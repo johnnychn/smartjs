@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Drag</title>
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <script src="../build/smartjs.js"></script>
+</head>
+<style>
+#drag{
+    width: 200px;
+    height: 200px;
+    background: #2b81af;
+}
+#drag2{
+    width: 200px;
+    height: 200px;
+    background: #2b81af;
+}
+body{
+    background: #000;
+}
+
+</style>
+<body>
+<div id="drag"></div>
+<div id="drag2"></div>
+<script>
+    $(document).ready(function () {
+
+        var drag=new SmartJS.Drag('#drag',{minX: 0, maxX: 300, minY: 0, maxY: 0,scaleX:2,scaleY:2});
+        drag.addEventListener('update',function(d){
+            console.log(d)
+        })
+        drag.updateScale(.5,.5);
+
+        drag.setValue(0.5,0);
+
+        var drag2=new SmartJS.Drag('#drag2',{minX: 0, maxX: 300, minY: 0, maxY: 0,scaleX:2,scaleY:2});
+        drag2.addEventListener('update',function(d){
+            console.log(d)
+        })
+
+
+    })
+</script>
+
+</body>
+</html>
+

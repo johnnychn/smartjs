@@ -1,0 +1,11 @@
+{
+  "description": "SmartJS Share",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "util", "device",
+    "url","input"
+  ]
+}

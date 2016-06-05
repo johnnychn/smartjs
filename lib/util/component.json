@@ -1,0 +1,9 @@
+{
+  "description": "S2 Util",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "S2 File",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "util"
+  ]
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>腾讯视频</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <script src="http://cdn.visionape.cn/js/jquery.1102.min.js"></script>
+    <!--<script src="http://cdn.visionape.cn/js/zepto.min.js"></script>-->
+    <script src="../build/smartjs.js"></script>
+    <style>
+        .btn{
+            padding: 5px;background: #000000;color: #fff;;margin-left: 10px;cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+<div class="btn" id="play" style="float: left">Play</div>
+<div class="btn" id="pause" style="float: left">pause</div>
+<div class="btn" id="stop" style="float: left">stop</div>
+<div class="btn" id="seek" style="float: left;">Seek</div>
+<div class="btn" id="log" style="float: left;">log</div>
+<div id="TXVideo" style="width: 100%; height:100%;"></div>
+
+<script>
+
+
+    var video = new SmartJS.Video({
+        src: 'http://b.cdn.visionape.cn/kacha/m36.mp4',width:"300",height:"300"
+    });
+
+    $(video.video).attr('data-index', 2);
+
+    $('#TXVideo').append(video.video);
+
+    function log(t){
+        $('#log').text(t)
+    }
+    video.addEventListener('play', function (e) {
+
+        log(e.type)
+    })
+    video.addEventListener('ended', function (e) {
+        log(e.type)
+    })
+
+
+    $('#play').click(function () {
+        video.play();
+
+    })
+    $('#pause').click(function () {
+        video.pause();
+
+    })
+    $('#stop').click(function () {
+        video.stop();
+
+    })
+    $('#seek').click(function () {
+        video.seek(285);
+    })
+
+
+    //video.pause();
+    // video.stop();
+
+    // video.destory();
+    // video.toggle();
+
+    // video.percent();
+
+
+</script>
+</body>
+</html>

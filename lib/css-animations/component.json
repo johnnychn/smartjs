@@ -1,0 +1,11 @@
+{
+  "description": "S2 CSSAnimations",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore",
+    "css",
+    "util"
+  ]
+}

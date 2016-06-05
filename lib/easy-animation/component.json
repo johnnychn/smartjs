@@ -1,0 +1,10 @@
+{
+  "description": "SmartJS EasyAnimation",
+  "scripts": [
+    "index.js"
+  ],
+  "locals": [
+    "underscore"
+
+  ]
+}

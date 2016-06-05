@@ -1,0 +1,11 @@
+{
+  "description": "WXMoment Resource Loader base PxLoader",
+  "scripts": [
+    "PxLoader.js",
+    "PxLoaderImage.js"
+
+  ],
+  "locals": [
+    "underscore"
+  ]
+}
